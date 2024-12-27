@@ -1,0 +1,17 @@
+>> fixed an issue where the result of the calculation was displayed in both the C# Calculator title scree and the calculation screen
+
+>> fixed an issue where a missing value in "AddMultiplicationWhenNeeded(string expression" that caused any result to be an invalid expression:
+
+
+*** Error ***
+ private static string AddMultiplicationWhenNeeded(string expression)
+ {
+     for (int i = 0; i < expression.Length ; i++)
+
+*** Fix ***
+
+ private static string AddMultiplicationWhenNeeded(string expression)
+ {
+     for (int i = 0; i < expression.Length -1; i++)
+
+The missing "-1" made the calculation going out of bound (which is definitely not something you want)
